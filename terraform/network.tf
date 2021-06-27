@@ -15,11 +15,12 @@ resource "azurerm_virtual_network" "myNet" {
 # Creación de subnet
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet
 
-resource "azurerm_subnet" "mySubnet" {
-    name                   = "terraformsubnet"
+resource "azurerm_subnet" "mySubnetEnv" {
+    count                  = length(var.net_envs) #iterate among the length of the variable net_envs
+    name                   = "terraformsubnet-${var.net_envs[count.index]}" #network name will change adding in the name of each defined environment in net_envs
     resource_group_name    = azurerm_resource_group.rg.name
     virtual_network_name   = azurerm_virtual_network.myNet.name #the name of the net whithin this subnet is built
-    address_prefixes       = ["10.0.1.0/24"]
+    address_prefixes       = ["10.0.${100+count.index}.0/24"]
 
 }
 
@@ -32,11 +33,12 @@ resource "azurerm_network_interface" "myNic1" {
   resource_group_name = azurerm_resource_group.rg.name
 
     ip_configuration {
-    name                           = "myipconfiguration1"
-    subnet_id                      = azurerm_subnet.mySubnet.id 
-    private_ip_address_allocation  = "Static"
-    private_ip_address             = "10.0.1.10" #static IP 
-    public_ip_address_id           = azurerm_public_ip.myPublicIp1.id #public IP
+      count                          = length(var.vms) #iterate among the length of the variable vms, where master, worker and nfs have been defined
+      name                           = "ipconfig-${var.vms[count.index]}"
+      subnet_id                      = azurerm_subnet.mySubnetEnv.id 
+      private_ip_address_allocation  = "Static"
+      private_ip_address             = "10.0.${azurerm_subnet.mySubnetEnv.count.index+100}.${count.index+1}" #static IP 
+      public_ip_address_id           = azurerm_public_ip.myPublicIp1.id #public IP
   }
 
     tags = {
@@ -49,7 +51,8 @@ resource "azurerm_network_interface" "myNic1" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip
 
 resource "azurerm_public_ip" "myPublicIp1" {
-  name                = "vmip1"
+  count               = length(var.vms) #iterate among the length of the variable vms, where master, 2 workers and nfs have been defined
+  name                = "vm-${var.vms[count.index]}"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Dynamic"

@@ -1,10 +1,3 @@
-#Variable to define the Region where the infrastructure has been created in Azure
-#variable "location" {
-#  type = string
-#  description = "Region where the infrastructure has been created in Azure"
-#  default = "West Europe"
-#}
-
 variable "storage_account" {
   type = string
   description = "Nombre para la storage account"

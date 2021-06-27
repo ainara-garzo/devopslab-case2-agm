@@ -12,11 +12,30 @@ variable "vm_size" {
   default = "Standard_D1_v2" # 3.5 GB, 1 CPU 
 }
 
+variable "cpu" {
+  type = number
+  description = "vcpus"
+  default = 2
+}
+
+variable "memory" {
+  type = number
+  description = "memoria en megas"
+  default = 4096
+}
+
+#Variable to define different machines in the system
+variable "net_envs" {
+  type = list(string)
+  description = "Network environments"
+  default = ["dev", "pre"] #two different environments for each network
+}
+
 #Variable to define different machines in the system
 variable "vms" {
   type = list(string)
   description = "Vitual machine names"
-  default = ["nfs", "master", "worker"]
+  default = ["master", "worker01", "worker02", "nfs"]
 }
 
 #Variable to define different nodes
