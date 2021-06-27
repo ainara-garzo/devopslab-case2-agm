@@ -8,7 +8,7 @@
 variable "storage_account" {
   type = string
   description = "Nombre para la storage account"
-  default = "testunirainaragarzo"
+  default = "storage4ainaragarzo"
 }
 
 variable "public_key_path" {
