@@ -20,7 +20,7 @@ resource "azurerm_subnet" "mySubnetEnv" {
     name                   = "terraformsubnet-${var.net_envs[count.index]}" #network name will change adding in the name of each defined environment in net_envs
     resource_group_name    = azurerm_resource_group.rg.name
     virtual_network_name   = azurerm_virtual_network.myNet.name #the name of the net whithin this subnet is built
-    address_prefixes       = ["10.0.${100+count.index}.0/24"]
+    address_prefixes       = ["10.0.${100+count.index}.0/24"] 
 
 }
 
