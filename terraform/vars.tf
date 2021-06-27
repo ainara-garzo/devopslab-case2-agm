@@ -1,9 +1,9 @@
 #Variable to define the Region where the infrastructure has been created in Azure
-#variable "location" {
-#  type = string
-#  description = "Region where the infrastructure has been created in Azure"
-#  default = "West Europe"
-#}
+variable "location" {
+  type = string
+  description = "Region where the infrastructure has been created in Azure"
+  default = "West Europe"
+}
 
 #Variable to define the VM machine size
 variable "vm_size" {
