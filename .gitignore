@@ -1,4 +1,1 @@
 credentials.tf
-credentials.tf.secret
-credentials.tf.clear
-.terraform*
