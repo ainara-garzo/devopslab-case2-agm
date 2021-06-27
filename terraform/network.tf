@@ -28,17 +28,17 @@ resource "azurerm_subnet" "mySubnetEnv" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface
 
 resource "azurerm_network_interface" "myNic1" {
-  name                = "vmnic1"  
+  count               = length(var.vms) #iterate among the length of the variable vms, where master, worker and nfs have been defined
+  name                = "vmnic-${var.vms[count.index]}"  
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 
     ip_configuration {
-      count                          = length(var.vms) #iterate among the length of the variable vms, where master, worker and nfs have been defined
       name                           = "ipconfig-${var.vms[count.index]}"
-      subnet_id                      = azurerm_subnet.mySubnetEnv.id 
+      subnet_id                      = azurerm_subnet.mySubnetEnv[count.index].id
       private_ip_address_allocation  = "Static"
-      private_ip_address             = "10.0.${azurerm_subnet.mySubnetEnv.count.index+100}.${count.index+1}" #static IP 
-      public_ip_address_id           = azurerm_public_ip.myPublicIp1.id #public IP
+      private_ip_address             = "10.0.${azurerm_subnet.mySubnetEnv[count.index].count.index+100}.${count.index+1}" #static IP 
+      public_ip_address_id           = azurerm_public_ip.myPublicIp1[count.index].id #public IP
   }
 
     tags = {

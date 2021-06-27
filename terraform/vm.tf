@@ -2,12 +2,15 @@
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine
 
 resource "azurerm_linux_virtual_machine" "myVM1" {
-    name                = "my-first-azure-vm"
+    count               = length(var.vm)
+    name                = "vm-${var.vm[count.index]}" #iterate among the length of the variable vms, where master, 2 workers and nfs have been defined
     resource_group_name = azurerm_resource_group.rg.name
     location            = var.location
-    size                = var.vm_size #virtual machine size defined in vars.tf
+    #size                = var.vm_size #virtual machine size defined in vars.tf
+    memory              = var.memory
+    num_cpus            = var.cpu
     admin_username      = "adminUsername"
-    network_interface_ids = [ azurerm_network_interface.myNic1.id ] #list of networks
+    network_interface_ids = [ azurerm_network_interface.myNic1[count.index].id ] #list of networks
     disable_password_authentication = true #password identification is deactivated, to use public/private password identification via ssh
 
     admin_ssh_key {
