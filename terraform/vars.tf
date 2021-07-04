@@ -9,26 +9,8 @@ variable "location" {
 variable "vm_size" {
   type = string
   description = "Vitual machine size"
-  default = "Standard_D1_v2" # 3.5 GB, 1 CPU 
-}
-
-variable "cpu" {
-  type = number
-  description = "vcpus"
-  default = 2
-}
-
-variable "memory" {
-  type = number
-  description = "memoria en megas"
-  default = 4096
-}
-
-#Variable to define different machines in the system
-variable "net_envs" {
-  type = list(string)
-  description = "Network environments"
-  default = ["dev", "pre"] #two different environments for each network
+  #default = "Standard_D1_v2" # 3.5 GB, 1 CPU 
+  default = "Standard_D12_v2"
 }
 
 #Variable to define different machines in the system
@@ -39,8 +21,8 @@ variable "vms" {
 }
 
 #Variable to define different nodes
-variable "nodes" {
-  type = list(string)
-  description = "vms nodes"
-  default = ["node1", "node2"]
-}
+#variable "nodes" {
+#  type = list(string)
+#  description = "vms nodes"
+#  default = ["node1", "node2"]
+#}
