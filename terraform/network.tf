@@ -2,7 +2,7 @@
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network
 resource "azurerm_virtual_network" "myNet" {
     name                = "kubernetesnet"
-    address_space       = ["10.0.0.0/16"]
+    address_space       = ["192.168.0.0/16"]
     location            = var.location
     resource_group_name = azurerm_resource_group.rg.name
 
@@ -17,7 +17,7 @@ resource "azurerm_subnet" "mySubnetEnv" {
     name                   = "terraformsubnet"
     resource_group_name    = azurerm_resource_group.rg.name
     virtual_network_name   = azurerm_virtual_network.myNet.name #the name of the net whithin this subnet is built
-    address_prefixes       = ["10.0.1.0/24"]
+    address_prefixes       = ["192.168.1.0/24"]
 }
 
 # Public IP creation for each machine. 
@@ -48,7 +48,7 @@ resource "azurerm_network_interface" "myNic" {
       name                           = "ipconfig-${var.vms[count.index]}"
       subnet_id                      = azurerm_subnet.mySubnetEnv.id
       private_ip_address_allocation  = "Static"
-      private_ip_address             = "10.0.1.${count.index+10}" #asign the static IP     
+      private_ip_address             = "10.0.1.${count.index+100}" #asign the static IP     
       public_ip_address_id           =  azurerm_public_ip.myPublicIp[count.index].id #public IP
   }
 
