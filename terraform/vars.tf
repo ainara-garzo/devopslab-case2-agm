@@ -6,18 +6,23 @@ variable "location" {
 }
 
 #Variable to define the VM machine size
+variable "master_size" {
+  type = string
+  description = "Vitual machine size"
+  default = "Standard_D2s_v3" #8 GB, 2 CPU
+}
+
 variable "vm_size" {
   type = string
   description = "Vitual machine size"
-  #default = "Standard_D1_v2" # 3.5 GB, 1 CPU 
-  default = "Standard_D12_v2"
+  default = "Standard_D1_v2" # 3.5 GB, 1 CPU 
 }
 
 #Variable to define different machines in the system
 variable "vms" {
   type = list(string)
   description = "Vitual machine names"
-  default = ["master", "worker01", "worker02", "nfs"]
+  default = ["master", "worker01", "worker02"]
 }
 
 #Variable to define different nodes
