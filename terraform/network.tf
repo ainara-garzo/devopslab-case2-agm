@@ -48,7 +48,7 @@ resource "azurerm_network_interface" "myNic" {
       name                           = "ipconfig-${var.vms[count.index]}"
       subnet_id                      = azurerm_subnet.mySubnetEnv.id
       private_ip_address_allocation  = "Static"
-      private_ip_address             = "10.0.1.${count.index+100}" #asign the static IP     
+      private_ip_address             = "192.168.1.${count.index+100}" #asign the static IP     
       public_ip_address_id           =  azurerm_public_ip.myPublicIp[count.index].id #public IP
   }
 
