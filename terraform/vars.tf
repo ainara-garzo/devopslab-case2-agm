@@ -25,6 +25,13 @@ variable "vms" {
   default = ["master", "worker01", "worker02"]
 }
 
+#variable to define the operating system to be used
+variable "os" {
+  type = string
+  description = "Operating system"
+  default = "centos-8-stream-free"
+}
+
 #Variable to define different nodes
 #variable "nodes" {
 #  type = list(string)
