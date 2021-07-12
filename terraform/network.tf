@@ -26,10 +26,11 @@ resource "azurerm_subnet" "mySubnetEnv" {
 resource "azurerm_public_ip" "myPublicIp" {
   count               = length(var.vms) #iterate among the length of the variable vms to create one public IP for each machine
   name                = "vm-${var.vms[count.index]}" #create a name for each IP
+  domain_name_label   = "vm-${var.vms[count.index]}"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
-  allocation_method   = "Dynamic"
-  sku                 = "Basic"
+  allocation_method   = "Static"
+  #sku                 = "Basic"
     tags = {
         environment = "CP2"
     }

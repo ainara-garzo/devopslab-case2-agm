@@ -13,5 +13,5 @@ variable "public_key_path" {
 variable "ssh_user" {
   type = string
   description = "Usuario para hacer ssh"
-  default = "adminUsername" #user name
+  default = "agarzo" #user name
 }
