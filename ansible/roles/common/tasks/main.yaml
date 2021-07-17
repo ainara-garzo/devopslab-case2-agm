@@ -1,7 +1,7 @@
 ---
 
-- include_task: ssh-connection.yaml
-- include_task: set-timezone.yaml
-- include_task: repositories.yaml
-- include_task: rpms.yaml
-- include_task: services.yaml
+- include_tasks: ssh-connection.yaml
+- include_tasks: set-timezone.yaml
+- include_tasks: repositories.yaml
+- include_tasks: rpms.yaml
+- include_tasks: services.yaml
