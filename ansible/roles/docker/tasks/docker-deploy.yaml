@@ -6,7 +6,7 @@
 
 - name: install docker-ce
   dnf:
-    name: "{{ docker_rpms }}"
+    name: docker-ce
     state: present
   become: yes
 

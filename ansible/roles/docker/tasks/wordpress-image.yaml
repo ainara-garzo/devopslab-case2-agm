@@ -4,3 +4,4 @@
   docker_image:
     name: wordpress
     source: pull
+  become: yes

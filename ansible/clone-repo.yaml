@@ -1,0 +1,9 @@
+---
+
+- name: clone a git repo
+  hosts: localhost
+  vars_files:
+    - "clone-repo/vars/repo-info.yaml"
+  gather_facts: false
+  roles:
+    - clone-repo
