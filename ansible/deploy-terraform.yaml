@@ -1,4 +1,6 @@
 # Basic deploy of terraform
-- terraform:
+- name: Terraform deploy
+  hosts: localhost
+  terraform:
     project_path: '../terraform/'
     state: present

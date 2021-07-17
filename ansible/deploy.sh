@@ -1,6 +1,5 @@
 #!/bin/bash
 
-ansible-playbook -i deploy-terraform.yaml
-#ansible-playbook -i hosts -l XXXX playbook
-ansible-playbook -i master -l deploy-k8s.yaml
-ansible-playbook -i deploy-deploy.yaml
+ansible-playbook -i hosts deploy-terraform.yaml
+ansible-playbook -i hosts -l vm-worker01 deploy-docker.yaml
+ansible-playbook -i hosts -l vm-master deploy-k8s.yaml

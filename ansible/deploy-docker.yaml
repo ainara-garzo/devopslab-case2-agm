@@ -1,0 +1,6 @@
+#deploy docker with a wordpress image to run this app
+- name: run docker in worker01
+  hosts: workers.vm-worker01
+  gather_facts: true
+  roles:
+    - docker/tasks

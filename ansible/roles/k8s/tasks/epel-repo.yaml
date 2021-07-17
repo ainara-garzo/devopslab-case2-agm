@@ -1,0 +1,3 @@
+- name: enable epel repository
+  command: "/usr/bin/dnf -y install {{ epel_repo }}"
+  become: yes

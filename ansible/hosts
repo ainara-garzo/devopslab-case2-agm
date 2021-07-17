@@ -10,3 +10,4 @@ vm-worker01=agarzo-worker01.westeurope.cloudapp.azure.com
 vm-worker02=agarzo-worker02.westeurope.cloudapp.azure.com
 
 [nfs]
+nfs-node=agarzo-master.westeurope.cloudapp.azure.com

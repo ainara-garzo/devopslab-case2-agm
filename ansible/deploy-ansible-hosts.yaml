@@ -2,7 +2,7 @@
   hosts: 
     - master
     - workers
-  vars:
-    - ntp_server = "group_vars/raleigh.yaml"
-  roles:
-    - ansible-examples
+  #vars:
+    
+  #roles:
+    

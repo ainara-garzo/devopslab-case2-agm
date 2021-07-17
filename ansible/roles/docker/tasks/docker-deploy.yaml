@@ -1,0 +1,8 @@
+- name: Create a docker container
+  docker_container:
+    name: mydocker
+    image: wordpress
+    ports: 9000
+    
+    volumes:
+      - /data
