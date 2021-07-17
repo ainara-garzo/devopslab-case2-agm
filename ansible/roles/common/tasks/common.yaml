@@ -1,5 +1,14 @@
 ---
 
+- name: set credentials for ssh connection
+  command: "ansible localhost -m {{ rg_group }} -a {{ ansible_params }}"
+  become: yes
+
+- name: Set timezone to west EU
+  timezone:
+    name: Europe/Madrid
+  become: yes
+
 - name: enable epel repository
   command: "/usr/bin/dnf -y install {{ epel_repo }}"
   become: yes
@@ -19,11 +28,6 @@
   become: yes
   with_items:
     - "{{ services }}"
-
-- name: Set timezone to west EU
-  timezone:
-    name: Europe/Madrid
-  become: yes
 
 - name: firewall configuration
   systemd:
