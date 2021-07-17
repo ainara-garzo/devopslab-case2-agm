@@ -1,3 +1,6 @@
+---
+
 - name: download wordpress image
-  command: "docker pull wordpress"
-  become: yes
+  docker_image:
+    name: wordpress
+    source: pull

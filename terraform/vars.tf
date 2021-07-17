@@ -32,9 +32,3 @@ variable "os" {
   default = "centos-8-stream-free"
 }
 
-#Variable to define different nodes
-#variable "nodes" {
-#  type = list(string)
-#  description = "vms nodes"
-#  default = ["node1", "node2"]
-#}

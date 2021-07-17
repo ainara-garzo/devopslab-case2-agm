@@ -1,5 +1,7 @@
+---
+
 - name: install k8s in master
   hosts: master
   gather_facts: true
   roles:
-    - k8s/tasks
+    - k8s

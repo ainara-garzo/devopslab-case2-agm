@@ -1,8 +1,0 @@
-- name: deploying ansible hosts
-  hosts: 
-    - master
-    - workers
-  #vars:
-    
-  #roles:
-    

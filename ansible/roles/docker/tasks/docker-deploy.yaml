@@ -1,8 +1,20 @@
-- name: Create a docker container
-  docker_container:
+---
+
+- name: docker configuration
+  command: "/usr/bin/dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo"
+  become: yes
+
+- name: install docker-ce
+  dnf:
+    name: "{{ docker_rpms }}"
+    state: present
+  become: yes
+
+- name: configure and deploy docker
+  systemd:
     name: mydocker
     image: wordpress
+    state: started
+    enabled: yes
     ports: 9000
-    
-    volumes:
-      - /data
+  become: yes

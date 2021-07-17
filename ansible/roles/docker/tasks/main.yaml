@@ -1,2 +1,4 @@
+---
+
 - include_tasks: docker-deploy.yaml
 #- include_tasks: wordpress-image.yaml

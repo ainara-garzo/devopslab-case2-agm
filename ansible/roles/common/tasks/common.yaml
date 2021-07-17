@@ -1,0 +1,36 @@
+---
+
+- name: enable epel repository
+  command: "/usr/bin/dnf -y install {{ epel_repo }}"
+  become: yes
+
+- name: install packages
+  dnf:
+    name: "{{ rpms }}"
+    state: latest
+  become: yes
+
+- name: enable services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+    masked: no
+  become: yes
+  with_items:
+    - "{{ services }}"
+
+- name: Set timezone to west EU
+  timezone:
+    name: Europe/Madrid
+  become: yes
+
+- name: firewall configuration
+  systemd:
+    name: "{{ item }}"
+    permanent: yes
+    state: enabled
+    inmediate: yes
+  become: yes
+  with_items:
+    - "{{ fw_services }}"

@@ -1,2 +1,4 @@
+---
+
 - include_tasks: epel-repo.yaml
 - include_tasks: k8s-deploy.yaml
