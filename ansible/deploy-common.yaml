@@ -1,6 +1,7 @@
 ---
 
 - name: deploying common services
+  hosts: all
   vars_files:
     - "roles/common/vars/common.yaml"
   roles:
