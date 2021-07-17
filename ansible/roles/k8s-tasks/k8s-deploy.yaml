@@ -1,0 +1,15 @@
+- name: Create a Service object for k8s
+  k8s:
+    state: present
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: web
+        namespace: ag-k8s
+      spec:
+        ports:
+        - protocol: TCP
+          targetPort: 8000
+          name: tcp-port
+          port: 8000

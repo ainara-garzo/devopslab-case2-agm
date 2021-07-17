@@ -1,0 +1,4 @@
+# Basic deploy of terraform
+- terraform:
+    project_path: '../terraform/'
+    state: present
