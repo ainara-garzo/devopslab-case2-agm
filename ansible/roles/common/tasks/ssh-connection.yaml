@@ -1,0 +1,11 @@
+---
+
+- name: install sshpass for ssh connection
+  hosts: localhost
+  command: "sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/sshpass-1.06-2.el7.x86_64.rpm"
+  become: yes
+
+- name: set credentials for ssh connection
+  hosts: localhost
+  command: "ansible localhost -m {{ rg_group }} -a {{ ansible_params }}"
+  become: yes
