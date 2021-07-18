@@ -1,0 +1,5 @@
+---
+
+rg_group: 'kubernetes_rg'
+
+ansible_params: 'name=myansible location=eastus'

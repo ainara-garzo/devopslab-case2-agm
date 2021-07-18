@@ -1,0 +1,10 @@
+---
+
+# deploy of terraform to build the vm architecture
+- name: Tasks for Terraform deploy
+  hosts: localhost
+  tasks:
+    - name: Terraform deploy
+      terraform:
+        project_path: '../terraform/'
+        state: present

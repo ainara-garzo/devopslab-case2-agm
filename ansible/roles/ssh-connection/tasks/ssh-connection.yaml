@@ -1,0 +1,8 @@
+---
+
+- name: ssh connection
+  hosts: localhost
+  tasks:
+    - name: install sshpass and set credentials
+      command: "sh ../files/ssh-connection.sh"
+      become: yes
