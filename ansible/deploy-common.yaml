@@ -6,7 +6,6 @@
     - "roles/common/vars/common.yaml"
   roles:
     - common
-  with_items:
-    - master
-    - workers
-
+  with_items: 
+    - "{{ hosts2apply }}"
+    
