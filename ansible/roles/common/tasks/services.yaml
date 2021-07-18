@@ -25,7 +25,7 @@
     - "{{ fw_services }}"
 
 #reload the firewall
--name: reload service firewall
+- name: reload service firewall
   systemd:
     name: firewalld
     state: reloaded
