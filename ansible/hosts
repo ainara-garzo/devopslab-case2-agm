@@ -4,11 +4,11 @@ ansible_password=~/.ssh/id_rsa
 ansible_python_interpreter=/usr/bin/python3
 
 [master]
-vm-master=agarzo-master.westeurope.cloudapp.azure.com 
+vm-master ansible_host=agarzo-master.westeurope.cloudapp.azure.com 
 
 [workers]
-vm-worker01=agarzo-worker01.westeurope.cloudapp.azure.com
-vm-worker02=agarzo-worker02.westeurope.cloudapp.azure.com
+vm-worker01 ansible_host=agarzo-worker01.westeurope.cloudapp.azure.com
+vm-worker02 ansible_host=agarzo-worker02.westeurope.cloudapp.azure.com
 
 [nfs]
-nfs-node=agarzo-master.westeurope.cloudapp.azure.com
+nfs-node ansible_host=agarzo-master.westeurope.cloudapp.azure.com
