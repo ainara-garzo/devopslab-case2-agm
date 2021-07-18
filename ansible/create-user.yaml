@@ -2,7 +2,9 @@
 
 #create new user in ansible
 - name: create user 
-  hosts: all
+  hosts: 
+    - master
+    - workers
   vars_files: 
     - "group_vars/vars.yaml"
   tasks:

@@ -23,3 +23,9 @@
   become: yes
   with_items:
     - "{{ fw_services }}"
+
+#reload the firewall
+-name: reload service firewall
+  systemd:
+    name: firewalld
+    state: reloaded
