@@ -1,0 +1,13 @@
+---
+
+#create new user in ansible
+- name: create user 
+  hosts: localhost
+  vars_files: 
+    - "group_vars/vars.yaml"
+  command: "useradd -md /home/ansible {{ user }}"
+  become: yes
+  
+
+
+    

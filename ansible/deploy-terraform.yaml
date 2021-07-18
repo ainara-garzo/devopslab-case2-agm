@@ -1,6 +1,6 @@
 ---
 
-# Basic deploy of terraform
+# deploy of terraform to build the vm architecture
 - name: Tasks for Terraform deploy
   hosts: localhost
   tasks:
