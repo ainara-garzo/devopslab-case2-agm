@@ -5,8 +5,10 @@
   hosts: localhost
   vars_files: 
     - "group_vars/vars.yaml"
-  command: "useradd -md /home/ansible {{ user }}"
-  become: yes
+  tasks:
+    - name: create user by command
+      command: "useradd -md /home/ansible {{ user }}"
+      become: yes
   
 
 
