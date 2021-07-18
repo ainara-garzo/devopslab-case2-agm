@@ -1,0 +1,8 @@
+---
+
+- name: deploying common services
+  hosts: all
+  vars_files:
+    - "roles/clone-repo/vars/repo-info.yaml"
+  roles:
+    - clone-repo
