@@ -1,3 +1,5 @@
+---
+
 - name: install packages
   dnf:
     name: "{{ rpms }}"

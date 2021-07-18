@@ -1,5 +1,6 @@
 ---
 
+#deploy common tasks, services and repositories in runing machines
 - name: deploying common services
   hosts: 
     - master

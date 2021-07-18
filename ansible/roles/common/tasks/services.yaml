@@ -1,3 +1,8 @@
+---
+
+#install 'chrony', 'bind-utils', 'nmap', 'dnf-plugins-core', 
+#'elinks', 'net-tools', 'jq' and 'dive'
+
 - name: enable services
   systemd:
     name: "{{ item }}"
@@ -8,6 +13,7 @@
   with_items:
     - "{{ services }}"
 
+#firewall configuration
 - name: firewall configuration
   systemd:
     name: "{{ item }}"

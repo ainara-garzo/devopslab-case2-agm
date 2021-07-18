@@ -1,4 +1,4 @@
 ---
 
 - include_tasks: docker-deploy.yaml
-#- include_tasks: wordpress-image.yaml
+#- include_tasks: wordpress-image.yaml #not sure if this is needed, it has been included in the previous playbook

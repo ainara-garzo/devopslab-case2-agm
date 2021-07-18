@@ -1,5 +1,6 @@
 ---
 
+#install kubernetes
 - name: install k8s in master
   hosts: master
   gather_facts: true

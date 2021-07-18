@@ -1,9 +1,11 @@
 ---
 
+#install epel repository
 - name: enable epel repository
   command: "/usr/bin/dnf -y install {{ epel_repo }}"
   become: yes
 
+#install powertools
 - name: enable powertools repository
   command: "/usr/bin/dnf config-manager --set-enabled powertools"
   become: yes

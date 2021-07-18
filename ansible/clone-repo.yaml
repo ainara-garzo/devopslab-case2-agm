@@ -1,7 +1,7 @@
 ---
-
-- name: deploying common services
-  hosts: all
+#cloning the git repo in every machines
+- name: 
+  hosts: workers
   vars_files:
     - "roles/clone-repo/vars/repo-info.yaml"
   roles:

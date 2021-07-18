@@ -12,4 +12,7 @@ Virtual machine deploy using Terraform in './terraform'.
  -client_secret
  -tenant_id 
 
+ It can be also deployed using the Ansible Playbook 'deploy-terraform.yaml'
+ 
+
 
