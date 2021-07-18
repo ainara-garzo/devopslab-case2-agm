@@ -1,10 +1,10 @@
 ---
 
-# deploy of terraform to build the vm architecture
-- name: Tasks for Terraform deploy
-  hosts: localhost
-  tasks:
-    - name: Terraform deploy
-      terraform:
-        project_path: '../terraform/'
-        state: present
+- name: create ssh connection with vms
+  hosts: 
+    - localhost
+    - all
+  vars_files: 
+    - "roles/ssh-connection/vars/ssh-connection.yaml"
+  roles:
+    - ssh-connection
