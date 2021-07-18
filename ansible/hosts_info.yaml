@@ -1,0 +1,16 @@
+---
+
+master:
+    hosts:
+        vm-master:
+            ansible_host: 192.168.1.100
+workers:
+    hosts:
+        vm-worker01:
+            ansible_host: 192.168.1.101
+        vm-worker02:
+            ansible_host: 192.168.1.102
+nfs:
+    hosts:
+        nfs-node:
+            ansible_host: 192.168.1.100

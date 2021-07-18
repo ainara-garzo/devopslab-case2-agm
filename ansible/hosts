@@ -3,11 +3,11 @@ ansible_user=ansible
 ansible_python_interpreter=/usr/bin/python3
 
 [master]
-vm-master=agarzo-master.westeurope.cloudapp.azure.com
+vm-master
 
 [workers]
-vm-worker01=agarzo-worker01.westeurope.cloudapp.azure.com
-agarzo-worker02.westeurope.cloudapp.azure.com
+vm-worker01 
+vm-worker02
 
 [nfs]
-nfs-node=agarzo-master.westeurope.cloudapp.azure.com
+nfs-node
