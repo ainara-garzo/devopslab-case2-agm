@@ -1,13 +1,13 @@
 ---
 
 - name: install git
-  hosts: all
+  hosts: workers
   tasks:
     command: "sudo dnf install git -y"
     become: yes
 
 - name: clone case2 repo
-  hosts: all
+  hosts: workers
   git:
     repo: "https://@github.com/{{ user }}/{{ repo_name }}.git"
     dest: "{{ target_dir }}"

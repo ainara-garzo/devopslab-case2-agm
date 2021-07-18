@@ -1,8 +1,12 @@
 ---
 
 - name: deploying common services
-  hosts: all
+  hosts: {{ item }}
   vars_files:
     - "roles/common/vars/common.yaml"
   roles:
     - common
+  with_items:
+    - master
+    - workers
+
